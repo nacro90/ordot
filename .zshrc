@@ -92,6 +92,8 @@ path+=("/usr/local/bin")
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 export EDITOR=nvim
+has nvr && export EDITOR='nvr --remote-wait -cc split -c"set bufhidden=delete"'
+
 export TERMINAL=alacritty
 
 export PYENV_ROOT="$HOME/.pyenv"
