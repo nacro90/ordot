@@ -1,0 +1,1 @@
+alias -g C='| xclip -sel clip'

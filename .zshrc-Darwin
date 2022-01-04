@@ -1,0 +1,62 @@
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Maven
+alias mci='mvn clean install --update-snapshots'
+alias mcis='mvn clean install --update-snapshots -DskipTests'
+
+# Kubectl
+alias k=kubectl
+alias drabbit='docker start rabbitmq'
+
+alias earth='kubectx kubernetes-admin@stage-mplc-idc'
+alias mars='kubectx kubernetes-admin@s-mobile-p1-1mars'
+alias moon1='kubectx moon-p2-1product.idc'
+alias moon2='kubectx moon-p2-2product.idc'
+
+pods() {
+	kubectl get pods | rg --pcre2 --ignore-case "$1"
+}
+
+watchpods() {
+	viddy "kubectl get pods | rg --pcre2 --ignore-case '$1'"
+}
+
+deployments() {
+	kubectl get deployments | rg --ignore-case "$1"
+}
+
+alias pipes='glab pipeline list'
+alias ci='glab pipeline ci view'
+
+has kafkactl && source <(kafkactl completion zsh)
+
+alias kafkaup='docker-compose -f ~/docker-compose/kafka.yml up -d'
+alias kafkadown='docker-compose -f ~/docker-compose/kafka.yml down'
+
+alias -g C='| pbcopy'
+
+function pods() {
+	kubectl get pods | rg --pcre2 --ignore-case "$1"
+}
+
+watchpods() {
+	viddy "kubectl get pods | rg --pcre2 --ignore-case '$1'"
+}
+
+deployments() {
+	kubectl get deployments | rg --pcre2 --ignore-case "$1"
+}
+
+export SDKMAN_DIR="$HOME/.sdkman"
+export KUBECONFIG="$HOME/.kube/config"
+
+nix="$HOME/.nix-profile/etc/profile.d/nix.sh"
+[ -e $nix ] && source nix
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# vim: set ft=zsh
