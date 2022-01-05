@@ -71,7 +71,7 @@ alias -g L='| less -R'
 os_starship="$XDG_CONFIG_HOME/starship/$(uname).toml"
 [ -f "$os_starship" ] && export STARSHIP_CONFIG="$os_starship"
 
-has zoxide && eval "$(zoxide init zsh)"
+has zoxide && eval "$(zoxide init zsh --cmd cd)"
 has starship && eval "$(starship init zsh)"
 has pyenv && eval "$(pyenv init -)"
 has exa && alias ls='exa --color=always'
