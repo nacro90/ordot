@@ -1,7 +1,11 @@
+function has {
+	type "$1" > /dev/null
+}
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+has fzf && source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Maven
 alias mci='mvn clean install --update-snapshots'
@@ -54,7 +58,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export KUBECONFIG="$HOME/.kube/config"
 
 nix="$HOME/.nix-profile/etc/profile.d/nix.sh"
-[ -e $nix ] && source nix
+[ -e "$nix" ] && source "$nix"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"

@@ -5,6 +5,10 @@ zstyle :compinstall filename '/home/nacro90/.zshrc'
 autoload -Uz compinit
 compinit
 
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+[ ! -d "$XDG_DATA_HOME/zsh" ] && mkdir -p "$XDG_DATA_HOME/zsh"
 HISTFILE=~/.local/share/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -44,9 +48,6 @@ zle_highlight=('paste:none')
 
 export SHELL=/usr/bin/zsh
 
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-
 function mkcd {
 	mkdir "$1" && cd "$1"
 }
@@ -76,7 +77,6 @@ has starship && eval "$(starship init zsh)"
 has pyenv && eval "$(pyenv init -)"
 has exa && alias ls='exa --color=always'
 
-has fzf && source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_OPTS="--color=16 --reverse --info=inline --marker='* ' --bind=change:top --bind=ctrl-b:page-up --bind=ctrl-f:page-down --bind=ctrl-u:half-page-up --bind=ctrl-d:half-page-down"
 export FZF_CTRL_R_OPTS='--no-info --preview='
 
@@ -101,8 +101,5 @@ path+=("$PYENV_ROOT/bin")
 has pyenv && eval "$(pyenv init --path)"
 
 export PATH
-
-os_zprofile="$HOME/.zprofile-$(uname)"
-[ -f "$os_zprofile" ] && source "$os_zprofile"
 
 pfetch 2> /dev/null
