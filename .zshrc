@@ -47,8 +47,6 @@ bindkey -a '^e' edit-command-line
 
 zle_highlight=('paste:none')
 
-export SHELL=/usr/bin/zsh
-
 function mkcd {
 	mkdir "$1" && cd "$1"
 }
@@ -83,9 +81,6 @@ export FZF_CTRL_R_OPTS='--no-info --preview='
 
 alias ordot="/usr/bin/git --git-dir=$HOME/.ordot/ --work-tree=$HOME"
 
-os_zshrc="$HOME/.zshrc-$(uname)"
-[ -f "$os_zshrc" ] && source "$os_zshrc"
-
 path+=("/usr/local/bin")
 [ -d "$HOME/bin" ] && path+=("$HOME/bin")
 [ -d "$HOME/.local/bin" ] && path+=("$HOME/.local/bin")
@@ -102,5 +97,8 @@ path+=("$PYENV_ROOT/bin")
 has pyenv && eval "$(pyenv init --path)"
 
 export PATH
+
+os_zshrc="$HOME/.zshrc-$(uname)"
+[ -f "$os_zshrc" ] && source "$os_zshrc"
 
 pfetch 2> /dev/null

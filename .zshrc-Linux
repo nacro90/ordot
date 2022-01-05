@@ -1,3 +1,5 @@
+export SHELL=/usr/bin/zsh
+
 function has {
 	type "$1" > /dev/null
 }
