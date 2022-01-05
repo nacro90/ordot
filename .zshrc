@@ -10,14 +10,15 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 [ ! -d "$XDG_DATA_HOME/zsh" ] && mkdir -p "$XDG_DATA_HOME/zsh"
 HISTFILE=~/.local/share/zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=1000000
+HISTSIZE="$SAVEHIST"
 
 setopt AUTO_CD
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_VERIFY
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt GLOBDOTS             # Glob dots without typing (.)
