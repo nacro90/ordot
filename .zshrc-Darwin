@@ -46,13 +46,15 @@ function pods() {
 	kubectl get pods | rg --pcre2 --ignore-case "$1"
 }
 
-watchpods() {
+function watchpods() {
 	viddy "kubectl get pods | rg --pcre2 --ignore-case '$1'"
 }
 
-deployments() {
+function deployments() {
 	kubectl get deployments | rg --pcre2 --ignore-case "$1"
 }
+
+source <(kubectl completion zsh)
 
 export SDKMAN_DIR="$HOME/.sdkman"
 export KUBECONFIG="$HOME/.kube/config"
