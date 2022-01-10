@@ -7,3 +7,6 @@ function has {
 has fzf && source '/usr/share/fzf/key-bindings.zsh'
 
 alias -g C='| xclip -sel clip'
+
+nix="$HOME/.nix-profile/etc/profile.d/nix.sh"
+[ -e $nix ] && source "$nix"
