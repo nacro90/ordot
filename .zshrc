@@ -55,6 +55,8 @@ function has {
 	type "$1" > /dev/null
 }
 
+path+=("/usr/local/bin")
+
 if has antibody; then
 	source <(antibody init)
 	antibody bundle < ~/.zsh_plugins.txt
@@ -81,7 +83,6 @@ export FZF_CTRL_R_OPTS='--no-info --preview='
 
 alias ordot="/usr/bin/git --git-dir=$HOME/.ordot/ --work-tree=$HOME"
 
-path+=("/usr/local/bin")
 [ -d "$HOME/bin" ] && path+=("$HOME/bin")
 [ -d "$HOME/.local/bin" ] && path+=("$HOME/.local/bin")
 
