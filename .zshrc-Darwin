@@ -28,7 +28,7 @@ watchpods() {
 	viddy "kubectl get pods | rg --pcre2 --ignore-case '$1'"
 }
 
-deployments() {
+deploys() {
 	kubectl get deployments | rg --ignore-case "$1"
 }
 
@@ -41,6 +41,7 @@ alias kafkaup='docker-compose -f ~/docker-compose/kafka.yml up -d'
 alias kafkadown='docker-compose -f ~/docker-compose/kafka.yml down'
 
 alias -g C='| pbcopy'
+alias -g P='pbpaste'
 
 function pods() {
 	kubectl get pods | rg --pcre2 --ignore-case "$1"
