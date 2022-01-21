@@ -85,6 +85,8 @@ alias ordot="/usr/bin/git --git-dir=$HOME/.ordot/ --work-tree=$HOME"
 
 [ -d "$HOME/bin" ] && path+=("$HOME/bin")
 [ -d "$HOME/.local/bin" ] && path+=("$HOME/.local/bin")
+[ -d "$HOME/.local/lib/flutter/bin" ] && path+=("$HOME/.local/lib/flutter/bin")
+[ -d "$HOME/go/bin" ] && path+=("$HOME/go/bin")
 
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
