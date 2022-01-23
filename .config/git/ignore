@@ -1,0 +1,13 @@
+*.rest
+
+.classpath
+.factorypath
+.project
+.settings/
+
+**/logback-spring.xml
+**/ProductCouchbaseConfiguration.java
+
+application.yaml
+
+.DS_Store
