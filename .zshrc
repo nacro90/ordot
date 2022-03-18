@@ -40,6 +40,8 @@ bindkey -v '^k' autosuggest-accept
 bindkey -a '^k' autosuggest-accept
 bindkey -a Y vi-yank-eol
 
+KEYTIMEOUT=1
+
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -v '^e' edit-command-line
