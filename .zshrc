@@ -95,8 +95,6 @@ alias ordot="/usr/bin/git --git-dir=$HOME/.ordot/ --work-tree=$HOME"
 export EDITOR=nvim
 # [ -n "$NVIM_LISTEN_ADDRESS" ] && export EDITOR=nvr-launcher || export EDITOR=nvim
 
-export CHROME_EXECUTABLE=brave
-
 export TERMINAL=alacritty
 
 export PYENV_ROOT="$HOME/.pyenv"

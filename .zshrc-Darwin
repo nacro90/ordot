@@ -17,10 +17,13 @@ alias drabbit='docker start rabbitmq'
 
 alias earth='kubectx kubernetes-admin@stage-mplc-idc'
 alias mars='kubectx kubernetes-admin@s-mobile-p1-1mars'
+alias marsp='kubectx kubernetes-admin@s-product-p1-1mars'
 alias moon1='kubectx moon-p2-1product.idc'
 alias moon2='kubectx moon-p2-2product.idc'
 
 pods() {
+  kubens -c
+  echo
 	kubectl get pods | rg --pcre2 --ignore-case "$1"
 }
 
@@ -30,6 +33,11 @@ watchpods() {
 
 deploys() {
 	kubectl get deployments | rg --ignore-case "$1"
+}
+
+kst() {
+  kubectl config current-context
+  kubens -c
 }
 
 alias pipes='glab pipeline list'
